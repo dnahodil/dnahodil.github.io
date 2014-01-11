@@ -1,2 +1,5 @@
-name: asdf
+name: Name of the Blag
 encoding: UTF-8
+source: content
+destination: content/_site
+timezone: Australia/Hobart

@@ -1,0 +1,31 @@
+A follow-on from my earlier post <a href="http://dnahodil.wordpress.com/2014/01/05/an-extension-for-groovy-lists-getting-the-only-element-of-a-list/">An extension for Groovy Lists – getting the only element of a&nbsp;List</a>
+<h3>A common use case (for me, at least)</h3>
+I have often found myself with cases where I want to try to get an element from a List knowing that my later code will behave as expected whether the element was present, or not. An example of this:
+<pre>if (playersStillToPlay.size()) {
+    currentPlayer = playersStillToPlay.head()
+    playersStillToPlay = playersStillToPlay.tail()
+}
+else {
+    currentPlayer = null  // Needs to be null if playersStillToPlay was an empty list
+                          // If playersStillToPlay was empty it doesn't matter what playersStillToPlay is after this point
+}</pre>
+To suit this type of situation I need a version of first(), last(), etc. which are a bit more loose. Specifically, I need a version that won't throw a NoSuchElementException if the List is empty.
+<h3>My solution: <em>x</em>IfAny()</h3>
+So the way to achieve this, which I think best fits with the existing methods and the idea of having expressive method names, is to have companion methods named <em>x</em>IfAny(). So into my Groovy extension library I added the following methods: <code>firstIfAny()</code>, <code>lastIfAny()</code>, <code>headIfAny()</code>, <code>tailIfAny()</code>, and -to match my new only() method- <code>onlyIfAny()</code>.
+
+So the above code snippet can now be tidied-up to become:
+<pre>currentPlayer = playersStillToPlay.headIfAny()
+playersStillToPlay = playersStillToPlay.tailIfAny()
+</pre>
+<br>
+<h3>Some considerations</h3>
+There were two cases where I needed to think about how to handle these new methods properly.
+
+<h4>tailIfAny()</h4>
+I needed to decide how tailIfAny() should behave if you call it on an empty list. I feel that it would be handy to return an empty list. That way you can always call each() or some other function on the result safely. However, for consistency with the other methods, I decided that it should return null. I can always add a new method which will return an empty list and name it differently to explain the different behaviour.
+
+<h4>onlyIfAny()</h4>
+Ironically perhaps, of all the methods I was extending in this way it was my method that seemed most odd. Calling only() indicates that you know that there is one, and only one, element in the list. So then onlyIfAny() means you know that there is <em>at most</em> one element. However, all of these extension methods are about loosening the constraints from the original methods so I am still happy with the extra functionality it gives you, even though it may seem a touch odd.
+
+<h3>More info</h3>
+The GitHub repo for the library: <a href="https://github.com/dnahodil/groovy-extra-list-behaviour" target="_blank">https://github.com/dnahodil/groovy-extra-list-behaviour</a>

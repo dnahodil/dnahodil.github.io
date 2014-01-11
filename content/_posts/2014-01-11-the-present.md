@@ -1,5 +1,6 @@
 ---
 title: A funny thing happened on the way to your face
+layout: post
 ---
 
 # Whoa

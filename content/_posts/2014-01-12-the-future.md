@@ -1,5 +1,6 @@
 ---
 title: The future
+layout: post
 ---
 
 # Whoa

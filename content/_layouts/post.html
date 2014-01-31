@@ -1,5 +1,11 @@
 {% include page_start.html %}
 
-{{ content }}
+<ul class="breadcrumbs">
+  <li><a href="/">Home</a></li>
+  <li><a href="/">Posts</a></li>
+  <li class="current">{{ page.title }}</li>
+</ul>
+
+<div style="border: 1px solid red;" class="text-justify">{{ content }}</div>
 
 {% include page_end.html %}

@@ -3,16 +3,14 @@ layout: default
 title: Home
 ---
 
-{{ site.time | date_to_string }}
-
-<ol>{% for post in site.posts %}
-<li>
-<article>
-   <header>
-      <a href="{{ post.url }}"><h1>{{ post.title }}</h1></a>
-      <div class="publish_info">Posted on: {{ post.date | date_to_string }}</div>
-   </header>
-   <p>Lorem ipsum blah blah...</p>
-</article>
-</li>
+    <ol style="list-style: none; margin: 0; padding: 0;">{% for post in site.posts %}
+      <li>
+        <article>
+          <header>
+            <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+            <span>Posted on: {{ post.date | date_to_string }}</span>
+          </header>
+          <p>Lorem ipsum blah blah...</p>
+        </article>
+      </li>
 {% endfor %}</ol>

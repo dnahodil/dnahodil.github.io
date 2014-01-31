@@ -3,3 +3,7 @@ encoding: UTF-8
 source: content
 destination: content/_site
 timezone: Australia/Hobart
+
+tag_page_layout: tag_page
+tag_page_dir: tag
+ignored_tags: [tags,to,ignore]

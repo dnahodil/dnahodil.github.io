@@ -1,6 +1,7 @@
 ---
 title: The future
 layout: post
+tags: one, teo
 ---
 
 # Whoa

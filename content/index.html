@@ -3,23 +3,26 @@ layout: default
 title: Home
 ---
 
-    <ol style="list-style: none; margin: 0; padding: 0;">{% for post in site.posts %}
-      <li class="panel radius">
-        <article>
-          {% if post.category == "posts" %}
-          <header>
-            <span style="position: float; margin-left: -200px; margin-bottom: -24px; border: 1px dotted blue;">{{ post.date | date_to_string }}</span>
-            <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
-          </header>
-          <p>Lorem ipsum blah blah...</p>
-          {% elsif post.category == "short ones" %}
-          <header>
-            <span style="position: float; margin-left: -200px; margin-bottom: -24px; border: 1px dotted blue;">{{ post.date | date_to_string }}</span>
-            <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
-          </header>
-          {% else %}
-             -{{ post.category }}-
-          {% endif %}
-        </article>
+   <ol style="list-style: none; margin: 0; padding: 0;">{% for post in site.posts %}
+      <li>
+         <article>
+            {% if post.category == "posts" %}
+            <header>
+               <div class="date">{{ post.date | date_to_string }}</div>
+               <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+            </header>
+            <p>Lorem ipsum blah blah...</p>
+            {% elsif post.category == "short ones" %}
+            <header>
+               <div class="date">{{ post.date | date_to_string }}</div>
+               <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
+            </header>
+            {% else %}
+            <header>
+               <div class="date">{{ post.date | date_to_string }}</div>
+               <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
+            </header>
+            {% endif %}
+         </article>
       </li>
-{% endfor %}</ol>
+{% endfor %}   </ol>

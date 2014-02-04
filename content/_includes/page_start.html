@@ -6,27 +6,24 @@
       <title>{{ page.title }} | {{ site.name }}</title>
       
       <link rel="stylesheet" href="/css/normalize.css">
-      <link rel="stylesheet" href="/css/foundation.css">
-
-      <script src="/js/vendor/modernizr.js"></script>
+      <link rel="stylesheet" href="/css/foundation.min.css">
+      <link rel="stylesheet" href="/css/customise.css">
    </head>
    <body>
-     <script src="/js/vendor/jquery.js"></script>
-     <script src="/js/foundation.min.js"></script>
-
-      <div class="row">
+      <div class="blog-header row radius">
         <div class="large-2 columns">
-           <header>
-              <a href="/"><img src="/images/logo.jpg" alt="Site logo. It's a thought bubble. The colour is a maroon that that traditional cultures believe projects intensity and passion. It's sketchy nature is symbolbolic of the ongoing journey of learning; plus, also, I drew it in paint." /></a>
+           <header style="width: 110px; height: 110px; background: url('/images/pattern-grey.png'); margin: 1em auto;">
+              <a href="/">Ze logo</a>
            </header>
         </div>
         <div class="large-10 columns">
            <header>
-              <h1>{{ site.name }}<br><small>Some thoughts and learnings of a professional software engineer</small></h1>
+              <h1>{{ site.name }}</h1>
+              <h1><small>Thoughts and learnings of a professional software engineer</small></h1>
            </header>
         </div>
-        <hr>
       </div>
 
-      <div class="row">
-      <div class="large-9 columns">
+      <div class="blog-main-row row">
+         <!-- <div class="blog-content large-9 columns radius"> -->
+         <div class="blog-content large-12 columns radius">
